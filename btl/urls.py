@@ -21,12 +21,16 @@ from django.conf.urls.static import static
 
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import url
+from customers import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('customers/', include('customers.urls')),
     path('produce/', include('produces.urls')),
-    path('warehouse/', include('warehouse.urls'))
+    path('warehouse/', include('warehouse.urls')),
+    path('',views.user_login, name="login" ),
+    path('register/',views.register, name="register" ),
+    # path('home/', views.home, name="home")
 ]
 
 

@@ -47,10 +47,10 @@ INSTALLED_APPS = [
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Công ty BeCoStar",
+    "site_title": "POVERIA",
 
     # Title on the brand, and login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "Quản lý nhân sự",
+    "site_header": "Quản lý",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
     # "site_logo": "books/img/logo.png",
@@ -65,7 +65,7 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Welcome to the library",
 
     # Copyright on the footer
-    "copyright": "BecoStar",
+    "copyright": "POVERIA",
 
     # The model admin to search from the search bar, search bar omitted if excluded
     # "search_model": "auth.User",
@@ -120,7 +120,7 @@ JAZZMIN_SETTINGS = {
     "hide_models": [],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
-    "order_with_respect_to": ["auth", "nhansu", "nhansu.ChucVu", "nhansu.ChuyenMon"],
+    "order_with_respect_to": ["auth", "warehouse", "produces", "customers"],
 
     # Custom links to append to app groups, keyed on app name
     # "custom_links": {
@@ -257,6 +257,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+STATIC_ROOT = os.path.join(BASE_DIR,  'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

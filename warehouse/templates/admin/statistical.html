@@ -323,12 +323,25 @@
             <li class="nav-header">Quản lý Kho</li>
 
             <li class="nav-item">
-
-              <a href="/admin/warehouse/produces/" class="nav-link">
-                <i class="nav-icon fas fa-circle "></i>
-                <p>Mặt hàng</p>
-              </a>
-
+                                            
+                <a href="/admin/warehouse/clothes/" class="nav-link">
+                    <i class="nav-icon fas fa-circle"></i> <p>Quần áo</p>
+                </a>
+            
+            </li>
+            <li class="nav-item">
+                                            
+                <a href="/admin/warehouse/book/" class="nav-link">
+                    <i class="nav-icon fas fa-circle"></i> <p>Sách</p>
+                </a>
+            
+            </li>
+            <li class="nav-item">
+                                            
+                <a href="/admin/warehouse/electro/" class="nav-link">
+                    <i class="nav-icon fas fa-circle"></i> <p>Đồ điện tử</p>
+                </a>
+            
             </li>
 
             <li class="nav-item active">
@@ -397,6 +410,19 @@
                                 <div class="col-12 col-sm-8 ">
                                     <form method="GET" action="{% url 'statistical' %}" >
                                         <div class="actions d-flex">
+                                            <div class=" col-sm-3">
+                                                <label><select name="item" required="" class="form-control">
+                                                    <option value="" selected="" data-select2-id="select2-data-2-ecfv">Danh mục
+                                                    {% for k in item %}
+                                                        {% if k == product %}
+                                                        <option value="{{k}}" selected>{{k}}</option>
+                                                        {%else%}
+                                                        <option value="{{k}}">{{k}}</option>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </select></label><label><input type="hidden" name="select_across" value="0"
+                                                class="select-across"></label>
+                                            </div>
                                             <div class=" col-sm-3">
                                                 <label><select name="param" required="" class="form-control">
                                                     <option value="" selected="" data-select2-id="select2-data-2-ecfv">Kiểu thống kê
@@ -468,7 +494,7 @@
 
                                           </div>
                                         </th>
-
+                                        {% if product == "Quần áo" %}
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">
                                           <div class="text">
 
@@ -484,14 +510,48 @@
 
                                           </div>
                                         </th>
+                                        {% elif product == "Đồ điện tử" %}
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">
+                                            <div class="text">
+
+                                                <a href="?o=5">Công suất</a>
+
+                                            </div>
+                                        </th>
+                                        {% elif product == "Sách" %}
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">
+                                            <div class="text">
+
+                                                <a href="?o=5">Số trang</a>
+
+                                            </div>
+                                        </th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">
+                                            <div class="text">
+
+                                                <a href="?o=5"></a>
+
+                                            </div>
+                                        </th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">
+                                            <div class="text">
+
+                                                <a href="?o=5">Tác giả</a>
+
+                                            </div>
+                                        </th>
 
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">
                                           <div class="text">
 
-                                            <a href="?o=6">Số lượng</a>
+                                            <a href="?o=6">Năm xuất bản</a>
 
                                           </div>
                                         </th>
+                                        {%else %}
+                                            <th></th>
+                                        {%endif%}
+                                        
 
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">
                                           <div class="text">
@@ -545,13 +605,25 @@
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      {% for pro in produces %}
+                                      {% for pro in products %}
                                         <tr role="row" class="even">
                                             <td class="font-weight-bold">{{forloop.counter}}</td>
                                             <td><a href="/admin/warehouse/produces/{{pro.id}}/change/">{{pro.idProduce}}</a></td>
                                             <td>{{pro.name}}</td>
+
+                                            {% if product == "Quần áo" %}
                                             <td>{{pro.color}}</td>
                                             <td>{{pro.size}}</td>
+                                            {% elif product == "Đồ điện tử" %}
+                                            <td>{{pro.power}}</td>
+                                            {% elif product == "Sách" %}
+                                            <td>{{pro.page_number}}</td>
+                                            <td>{{pro.author}}</td>
+                                            <td>{{pro.publishing_year}}</td>
+                                            {%else %}
+                                                <td></td>
+                                            {%endif%}
+                                            
                                             <td>{{pro.amount}}</td>
                                             <td>{{pro.sold}}</td>
                                             <td>{{pro.inventory}}</td>
