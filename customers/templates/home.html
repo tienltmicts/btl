@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>User</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5 d-flex">
+            <a class="navbar-brand fw-bold" href="#page-top"> <img src="../static/assets/images/Lymn_logo.png" alt=""></a>
+
+            <a class="nav-toggler d-block d-md-none text-dark" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation" href="javascript:void(0)"><i class="bi-list bi-close"></i></a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-lg-0">
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="trangchu.html">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="quanao.html">QUẦN ÁO</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="phukien.html">ĐIỆN TỬ</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="phukien.html">SÁCH</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="blog.html">BLOG</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="lienhe.html">LIÊN HỆ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gioithieu.html">GIỚI THIỆU</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Mashead header-->
+    <header class="masthead">
+        <div style="padding: 0 10%;margin-left:0; ">
+            <div class="row m-0 ">
+                <div class="col-6 d-flex">
+                    <span>Danh sách yêu thích (0) |</span>
+                    <input class="form-input" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" />
+                    <i class="bi-search"></i>
+                </div>
+                <div class="pb-4 col-6 content-header dropdown" style="padding-right: 0; text-align: right; width:51%">
+
+                    <a href="{%url 'view_cart'%}"><span>Giỏ hàng ({{amount}})</span></a> | <i class="bi-person-fill"
+                        aria-hidden="true"></i><span class="dropdown-toggle" data-bs-toggle="dropdown">{{user.username}}
+                        </i></span></span>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                        <a class="dropdown-item" href="dangky.html"><i class="bi bi-person-circle m-r-5 m-l-5"></i>
+                            Quản lý tài khoản</a>
+
+                        <a class="dropdown-item" href="/"><i
+                                class="bi bi-box-arrow-in-left m-r-5 m-l-5"></i> Đăng xuất</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <div class="bss-slides demo1" tabindex="1" autofocus="autofocus">
+            <figure>
+                <img src="../static/assets/images/image6.png" width="100%" />
+
+                <figcaption>
+                    <span class="p-header">Lựa chọn </span><br>
+                    <span class="p-body">phong cách</span><br>
+                    <span class="p-header mt-1">của bạn</span><br><br>
+                    <button type="button" class="btn btn-dark k">XEM THÊM</button>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="../static/assets/images/image6.png" width="100%" />
+                <figcaption>
+                    <span class="p-header">Bộ sưu tập </span><br>
+                    <span class="p-body">đông hè</span><br>
+                    <span class="p-header ">độc quyền </span><br><br>
+                    <button type="button" class="btn btn-dark k">XEM THÊM</button>
+                </figcaption>
+            </figure>
+
+        </div>
+
+        <div class="row col-12 mt-5" style="padding: 0 10%;margin-left:0; ">
+            <div class="col-4">
+                <div class=" d-flex" style="text-align:left">
+                    <div class="ship">
+                        <i class="bi bi-truck " aria-hidden="true" style="font-size: 2vw"></i>
+                    </div>
+                    <div style="margin-left: 2%">
+                        <p class="ship-header">Miễn phí ship</p>
+                        <span class="ship-body">Áp dụng cho đơn hàng trên 50k</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class=" d-flex " style="text-align:left">
+                    <div class="ship">
+                        <i class="bi bi-cash-coin" aria-hidden="true" style="font-size: 2vw"></i>
+                    </div>
+                    <div style="margin-left: 2%">
+                        <p class="ship-header">Hoàn tiền đổi trả</p>
+                        <span class="ship-body">Trong vòng 7 ngày nếu có lỗi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class=" d-flex " style="text-align:left">
+                    <div class="ship">
+                        <i class="bi bi-headset" aria-hidden="true" style="font-size: 2vw"></i>
+                    </div>
+                    <div style="margin-left: 2%">
+                        <p class="ship-header">Tư vấn online</p>
+                        <span class="ship-body">24/24 tất cả các ngày trong tuần</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-12 mt-5" style="padding: 0 10%;margin-left:0; ">
+            <div class="col-4 ">
+                <img src="../static/assets/images/image7.png" alt="Snow" style="width:100%;height: 100%;">
+                <div class="produce">
+                    <div style="margin-bottom: 24%">
+                        <p class="p-produce">Đồ</p>
+                        <p class="p-produce">Dạo phố</p>
+                    </div>
+                    <a class="see-more" href="chart_detail.html">XEM THÊM</a>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="../static/assets/images/dt.jpg" alt="Forest" style="width:100%;height: 100%;">
+                <div class="produce">
+                    <div style="margin-bottom: 24%">
+                        <p class="p-produce">Đồ</p>
+                        <p class="p-produce">Điện tử</p>
+                    </div>
+                    <a class="see-more" href="chart_detail.html">XEM THÊM</a>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="../static/assets/images/sach1.jpg" alt="Mountains" style="width:100%;height: 100%;">
+                <div class="produce">
+                    <div style="margin-bottom: 24%">
+                        <p class="p-produce">Các loại</p>
+                        <p class="p-produce">Sách</p>
+                    </div>
+                    <a class="see-more" href="chart_detail.html">XEM THÊM</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-12" style="padding: 0 10%;margin-left:0; margin-top: 7% ">
+            <div class="col-4">
+                <p class="sale-text1">Sản phẩm</p>
+
+            </div>
+            <div class="col-8" style="padding-right: 0">
+                <img src="../static/assets/images/sale.png" alt="Snow" style="width:100%">
+            </div>
+            <div class="sale">
+                <p class="sale-text2">BÁN CHẠY</p>
+            </div>
+        </div>
+
+        <div class="row col-12" style="padding: 0 10%;margin-left:0; margin-top: 5%; text-align: center">
+            {% for i in clothes %}
+                <div class="col-3 imageBox">
+                    <img class="img1" src="{{i.image.url}}" alt="Snow" style="width:100%">
+                    <p class="sale-off">-{{i.sale_off}}%</p>
+                    <div class="hoverImg">
+                        <div class="div-icon"><a href="{% url 'add_cart_clothes' i.id %}"><i class="bi bi-cart"></i></a></div>
+                        <div class="div-icon mt-2"><a><i class="bi bi-heart"></i></a></div>
+                    </div>
+                    <div class="pt-3">
+                        <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                        <span class="ship-body">{{i.produce.name}}</span><br>
+                        <b class="price-prd">{{i.price}}đ</b><br>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row col-12" style="padding: 0 10%;margin-left:0; margin-top: 6%; text-align: center">
+            {% for i in electros %}
+                <div class="col-3 imageBox">
+                    <img class="img1" src="{{i.image.url}}" alt="Snow" style="width:100%;height: 80%;">
+                    <p class="sale-off" style="margin-top: -105%;">-{{i.sale_off}}%</p>
+                    <div class="hoverImg" style="margin-top: -105%;">
+                        <div class="div-icon"><i class="bi bi-cart"></i></div>
+                        <div class="div-icon mt-2"><i class="bi bi-heart"></i></div>
+                    </div>
+                    <div class="pt-3">
+                        <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                        <span class="content-prd">{{i.produce.name}}</span><br>
+                        <b class="price-prd">{{i.price}}đ</b><br>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for i in books %}
+                <div class="col-3 imageBox">
+                    <img class="img1" src="{{i.image.url}}" alt="Snow" style="width:100%;height: 80%;">
+                    <p class="sale-off" style="margin-top: -105%;">-{{i.sale_off}}%</p>
+                    <div class="hoverImg" style="margin-top: -105%;">
+                        <div class="div-icon"><i class="bi bi-cart"></i></div>
+                        <div class="div-icon mt-2"><i class="bi bi-heart"></i></div>
+                    </div>
+                    <div class="pt-3">
+                        <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                        <span class="content-prd">{{i.produce.name}}</span><br>
+                        <b class="price-prd">{{i.price}}đ</b><br>
+                        
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="row col-12" style="padding: 0 10%;margin-left:0; margin-top: 7% ">
+            <div class="col-4">
+                <p class="sale-text1">Khuyến mãi</p>
+
+            </div>
+            <div class="col-8" style="padding-right: 0">
+                <img src="../static/assets/images/image22.png" alt="Snow" style="width:100%">
+            </div>
+            <div class="sale">
+                <p class="sale-text2">SALE UP TO 50%</p>
+            </div>
+        </div>
+
+        <div class="row d-flex" style="padding: 0 10%; margin-left:0;margin-top:3%">
+            <div class="col-3 imageBox" style="text-align: center">
+                <img class="img1" src="../static/assets/images/image23.png" alt="Snow" style="width:100%">
+                <p class="sale-off">-50%</p>
+                <div class="hoverImg1">
+                    <div class="div-icon "><i class="bi bi-cart"></i></div>
+                    <div class="div-icon  mt-2"><i class="bi bi-heart"></i></div>
+                </div>
+                <div class="pt-3">
+                    <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                    <span class="ship-body">Baby Doll</span><br>
+                    <b class="price-prd">150.000đ</b><br>
+                    <p class="price">300.000đ</p>
+                </div>
+
+            </div>
+
+            <div class="col-3 imageBox" style="text-align: center">
+
+                <img class="img1" src="../static/assets/images/image24.png" alt="Snow" style="width:100%">
+                <p class="sale-off">-50%</p>
+                <div class="hoverImg1">
+                    <div class="div-icon "><i class="bi bi-cart"></i></div>
+                    <div class="div-icon  mt-2"><i class="bi bi-heart"></i></div>
+                </div>
+                <div class="pt-3">
+                    <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                    <span class="ship-body">Baby Doll</span><br>
+                    <b class="price-prd">150.000đ</b><br>
+                    <p class="price">300.000đ</p>
+                </div>
+
+            </div>
+            <div class="col-3 imageBox" style="text-align: center">
+
+                <img class="img1" src="../static/assets/images/image25.png" alt="Snow" style="width:100%">
+                <p class="sale-off">-50%</p>
+                <div class="hoverImg1">
+                    <div class="div-icon "><i class="bi bi-cart"></i></div>
+                    <div class="div-icon  mt-2"><i class="bi bi-heart"></i></div>
+                </div>
+                <div class="pt-3">
+                    <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                    <span class="ship-body">Baby Doll</span><br>
+                    <b class="price-prd">150.000đ</b><br>
+                    <p class="price">300.000đ</p>
+                </div>
+
+            </div>
+            <div class="col-3 imageBox" style="text-align: center">
+
+                <img class="img1" src="../static/assets/images/image26.png" alt="Snow" style="width:100%">
+                <p class="sale-off">-50%</p>
+                <div class="hoverImg1">
+                    <div class="div-icon "><i class="bi bi-cart"></i></div>
+                    <div class="div-icon  mt-2"><i class="bi bi-heart"></i></div>
+                </div>
+                <div class="pt-3">
+                    <a href="phukien_detail.html" class="button-more btn-outline-dark">Xem</a><br>
+                    <span class="ship-body">Baby Doll</span><br>
+                    <b class="price-prd">150.000đ</b><br>
+                    <p class="price">300.000đ</p>
+                </div>
+
+            </div>
+
+        </div>
+        <br>
+        
+    </section>
+    <hr>
+
+    <div class="container px-5">
+        <div class="row">
+            <p class="h2 mb-4 text-center">Đăng ký nhận thông tin mới từ <span class="h1 span-logo"> POVERIA</span></p>
+        </div>
+
+        <div class="form-outline mb-4" style="padding: 0 27%">
+            <input type="email" id="form1Example1" class="input-footer" placeholder="Nhập email của bạn tại đây">
+
+            <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 88.8px;"></div>
+                <div class="form-notch-trailing"></div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="py-2">
+                <input type="checkbox" class="py-4"> <span>Tôi đồng ý với các chính sách và điều khoản</span><Br>
+                <div style="padding: 1% 30% ">
+                    <button type="button" class="btn btn-dark k">ĐĂNG KÝ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="background: #d9d9d9; padding-top: 2%">
+
+        <div class="container">
+            <div class="row text-center pl-3" style="text-align: justify">
+                <div class="col-4">
+                    <p class="h1 span-logo">POVERIA</p>
+                </div>
+                <div class="col-4">
+                    <p class="h5">DANH MỤC</p>
+                </div>
+                <div class="col-4">
+                    <p class="h5">PHỤ KIỆN</p>
+                </div>
+            </div>
+
+            <div class="row text-center pl-3" style="text-align: justify">
+                <div class="col-4">
+                    <p class="content-ft">11A Quang Trung, Hà Đông, Hà Nội</p>
+                </div>
+                <div class="col-4">
+                    <p class="content-ft">Áo</p>
+                </div>
+                <div class="col-4">
+                    <p class="content-ft">Túi xách</p>
+                </div>
+            </div>
+
+            <div class="row text-center pl-3">
+                <div class="col-4">
+                    <p class="content-ft">Số điện thoại: 0984xxxxxx</p>
+                </div>
+                <div class="col-4">
+                    <p class="content-ft">Quần</p>
+                </div>
+                <div class="col-4">
+                    <p class="content-ft">Thát lưng</p>
+                </div>
+            </div>
+
+            <div class="row text-center p2-3 pb-5">
+                <div class="col-4">
+                    <p class="content-ft">Email: Poveria@gmail.com</p>
+                </div>
+                <div class="col-4">
+                    <p class="content-ft">Váy</p>
+                </div>
+                <div class="col-4">
+                    <p class="content-ft">Mũ</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script>
+        var makeBSS = function(el, options) {
+            var $slideshows = document.querySelectorAll(el), // a collection of all of the slideshow
+                $slideshow = {},
+                Slideshow = {
+                    init: function(el, options) {
+                        this.counter = 0; // to keep track of current slide
+                        this.el = el; // current slideshow container    
+                        this.$items = el.querySelectorAll(
+                            'figure'); // a collection of all of the slides, caching for performance
+                        this.numItems = this.$items.length; // total number of slides
+                        options = options || {}; // if options object not passed in, then set to empty object 
+                        options.auto = options.auto ||
+                            false; // if options.auto object not passed in, then set to false
+                        this.opts = {
+                            auto: (typeof options.auto === "undefined") ? false : options.auto,
+                            speed: (typeof options.auto.speed === "undefined") ? 1500 : options.auto.speed,
+                            pauseOnHover: (typeof options.auto.pauseOnHover === "undefined") ? false :
+                                options.auto.pauseOnHover,
+                            fullScreen: (typeof options.fullScreen === "undefined") ? false : options
+                                .fullScreen,
+                            swipe: (typeof options.swipe === "undefined") ? false : options.swipe
+                        };
+                        this.$items[0].classList.add('bss-show'); // add show class to first figure 
+                        this.injectControls(el);
+                        this.addEventListeners(el);
+                        if (this.opts.auto) {
+                            this.autoCycle(this.el, this.opts.speed, this.opts.pauseOnHover);
+                        }
+                        if (this.opts.fullScreen) {
+                            this.addFullScreen(this.el);
+                        }
+                        if (this.opts.swipe) {
+                            this.addSwipe(this.el);
+                        }
+                    },
+                    showCurrent: function(i) {
+                        // increment or decrement this.counter depending on whether i === 1 or i === -1
+                        if (i > 0) {
+                            this.counter = (this.counter + 1 === this.numItems) ? 0 : this.counter + 1;
+                        } else {
+                            this.counter = (this.counter - 1 < 0) ? this.numItems - 1 : this.counter - 1;
+                        }
+                        // remove .show from whichever element currently has it 
+                        // http://stackoverflow.com/a/16053538/2006057
+                        [].forEach.call(this.$items, function(el) {
+                            el.classList.remove('bss-show');
+                        });
+                        // add .show to the one item that's supposed to have it
+                        this.$items[this.counter].classList.add('bss-show');
+                    },
+                    injectControls: function(el) {
+                        // build and inject prev/next controls
+                        // first create all the new elements
+                        var spanPrev = document.createElement("span"),
+                            spanNext = document.createElement("span"),
+                            docFrag = document.createDocumentFragment();
+                        // add classes
+                        spanPrev.classList.add('bss-prev');
+                        spanNext.classList.add('bss-next');
+                        // add contents
+                        spanPrev.innerHTML = '&laquo;';
+                        spanNext.innerHTML = '&raquo;';
+                        // append elements to fragment, then append fragment to DOM
+                        docFrag.appendChild(spanPrev);
+                        docFrag.appendChild(spanNext);
+                        el.appendChild(docFrag);
+                    },
+                    addEventListeners: function(el) {
+                        var that = this;
+                        el.querySelector('.bss-next').addEventListener('click', function() {
+                            that.showCurrent(1); // increment & show
+                        }, false);
+                        el.querySelector('.bss-prev').addEventListener('click', function() {
+                            that.showCurrent(-1); // decrement & show
+                        }, false);
+                        el.onkeydown = function(e) {
+                            e = e || window.event;
+                            if (e.keyCode === 37) {
+                                that.showCurrent(-1); // decrement & show
+                            } else if (e.keyCode === 39) {
+                                that.showCurrent(1); // increment & show
+                            }
+                        };
+                    },
+                    autoCycle: function(el, speed, pauseOnHover) {
+                        var that = this,
+                            interval = window.setInterval(function() {
+                                that.showCurrent(1); // increment & show
+                            }, speed);
+                        if (pauseOnHover) {
+                            el.addEventListener('mouseover', function() {
+                                interval = clearInterval(interval);
+                            }, false);
+                            el.addEventListener('mouseout', function() {
+                                interval = window.setInterval(function() {
+                                    that.showCurrent(1); // increment & show
+                                }, speed);
+                            }, false);
+                        } // end pauseonhover
+                    },
+                    addFullScreen: function(el) {
+                        var that = this,
+                            fsControl = document.createElement("span");
+                        fsControl.classList.add('bss-fullscreen');
+                        el.appendChild(fsControl);
+                        el.querySelector('.bss-fullscreen').addEventListener('click', function() {
+                            that.toggleFullScreen(el);
+                        }, false);
+                    },
+                    addSwipe: function(el) {
+                        var that = this,
+                            ht = new Hammer(el);
+                        ht.on('swiperight', function(e) {
+                            that.showCurrent(-1); // decrement & show
+                        });
+                        ht.on('swipeleft', function(e) {
+                            that.showCurrent(1); // increment & show
+                        });
+                    },
+                    toggleFullScreen: function(el) {
+                        // https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Using_full_screen_mode
+                        if (!document.fullscreenElement && // alternative standard method
+                            !document.mozFullScreenElement && !document.webkitFullscreenElement &&
+                            !document.msFullscreenElement) { // current working methods
+                            if (document.documentElement.requestFullscreen) {
+                                el.requestFullscreen();
+                            } else if (document.documentElement.msRequestFullscreen) {
+                                el.msRequestFullscreen();
+                            } else if (document.documentElement.mozRequestFullScreen) {
+                                el.mozRequestFullScreen();
+                            } else if (document.documentElement.webkitRequestFullscreen) {
+                                el.webkitRequestFullscreen(el.ALLOW_KEYBOARD_INPUT);
+                            }
+                        } else {
+                            if (document.exitFullscreen) {
+                                document.exitFullscreen();
+                            } else if (document.msExitFullscreen) {
+                                document.msExitFullscreen();
+                            } else if (document.mozCancelFullScreen) {
+                                document.mozCancelFullScreen();
+                            } else if (document.webkitExitFullscreen) {
+                                document.webkitExitFullscreen();
+                            }
+                        }
+                    } // end toggleFullScreen
+                }; // end Slideshow object 
+            // make instances of Slideshow as needed
+            [].forEach.call($slideshows, function(el) {
+                $slideshow = Object.create(Slideshow);
+                $slideshow.init(el, options);
+            });
+        };
+        var opts = {
+            auto: {
+                speed: 5000,
+                pauseOnHover: true
+            },
+            fullScreen: true,
+            swipe: true
+        };
+        makeBSS('.demo1', opts);
+    </script>
+    <script>
+        $('.center').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [
+            {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+            }
+            }
+        ]
+        });
+
+    </script>
+    <script src="https://leemark.github.io/better-simple-slideshow/demo/js/hammer.min.js"></script>
+    <!-- for swipe support on touch interfaces -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'js/scripts' %}"></script>
+</body>
+
+</html>

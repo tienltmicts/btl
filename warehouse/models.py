@@ -56,7 +56,7 @@ class Book(models.Model):
     idProduct = models.CharField("Mã sản phẩm", max_length=255)
     name = models.CharField("Tên sản phẩm",max_length=255)
     page_number = models.IntegerField("Số trang", max_length=255)
-    author = models.CharField("tác giả",max_length=255)
+    author = models.CharField("Tác giả",max_length=255)
     publishing_year = models.IntegerField("Năm xuất bản", max_length=255)
     amount = models.IntegerField("Số lượng",default=0)
     sold = models.IntegerField("Đã bán", null=True, blank=True)

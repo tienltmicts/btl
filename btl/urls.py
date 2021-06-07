@@ -30,7 +30,7 @@ urlpatterns = [
     path('warehouse/', include('warehouse.urls')),
     path('',views.user_login, name="login" ),
     path('register/',views.register, name="register" ),
-    # path('home/', views.home, name="home")
+    path('home/', views.home, name="home")
 ]
 
 

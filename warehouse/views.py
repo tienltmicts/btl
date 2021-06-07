@@ -19,7 +19,7 @@ def statistical(request):
         if form.is_valid():
             query_string = request.GET['param']
             time = int(request.GET['times'])
-            product = request.GET['product']
+            product = request.GET['item']
             if time == 13:
                 if query_string == 'Tồn':
                     if product == 'Quần áo':
@@ -67,16 +67,16 @@ def statistical(request):
                         products.append(i)
                 elif query_string == 'Tồn nhiều nhất':
                     if product == 'Quần áo':
-                        products.append(Book.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('inventory'))
+                        products.append(Clothes.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('inventory'))
                     elif product == 'Đồ điện tử':
-                        products.append(Book.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('inventory'))
+                        products.append(Electro.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('inventory'))
                     else:
                         products.append(Book.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('inventory'))
                 elif query_string == 'Bán chạy nhất':
                     if product == 'Quần áo':
-                        products.append(Book.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('sold'))
+                        products.append(Clothes.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('sold'))
                     elif product == 'Đồ điện tử':
-                        products.append(Book.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('sold'))
+                        products.append(Electro.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('sold'))
                     else:
                         products.append(Book.objects.filter(added_date__year = datetime.datetime.now().year,added_date__month=time).latest('sold'))
                 else:

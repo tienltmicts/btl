@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -30,14 +30,14 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
         <div class="container px-5 d-flex">
-            <a class="navbar-brand fw-bold" href="#page-top"> <img src="../static/assets/images/Lymn_logo.png" alt=""></a>
+            <a class="navbar-brand fw-bold" href="#page-top"> <img src="/static/assets/images/Lymn_logo.png" alt=""></a>
 
             <a class="nav-toggler d-block d-md-none text-dark" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation" href="javascript:void(0)"><i class="bi-list bi-close"></i></a>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="trangchu.html">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="{% url 'home' %}">TRANG CHỦ</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="quanao.html">QUẦN ÁO</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="phukien.html">ĐIỆN TỬ</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="phukien.html">SÁCH</a></li>
@@ -52,7 +52,7 @@
     <!-- Mashead header-->
     <header class="masthead">
         <div class="container px-5">
-            <div class="row m-0 ">
+            <div class="row m-0">
                 <div class="col-6 d-flex " >
                     <span>Danh sách yêu thích (0) |</span>
                     <input class="form-input" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" />
@@ -60,67 +60,65 @@
                 </div>
                 <div class="pb-4 col-6 content-header dropdown" style="padding-right: 0; text-align: right; width:51%">
 
-                    <a href="giohang.html"><span >Giỏ hàng (0)</span></a> | <i class="bi-person-fill" aria-hidden="true"></i><span class="dropdown-toggle" data-bs-toggle="dropdown"> Tài khoản </i></span></span>
+                    <a href="{%url 'view_cart' %}"><span>Giỏ hàng ({{amount}})</span></a> | <i class="bi-person-fill"
+                        aria-hidden="true"></i><span class="dropdown-toggle" data-bs-toggle="dropdown"> {{user.username}}
+                        </i></span></span>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                        <a class="dropdown-item" href="{%url 'register' %}"><i
-                                class="bi bi-box-arrow-in-right m-r-5 m-l-5"></i> Đăng ký</a>
+                        <a class="dropdown-item" href="dangky.html"><i class="bi bi-person-circle m-r-5 m-l-5"></i>
+                            Quản lý tài khoản</a>
 
-                        <a class="dropdown-item" href="{% url 'login' %}"><i
-                                class="bi bi-box-arrow-in-right m-r-5 m-l-5"></i> Đăng nhập</a>
+                        <a class="dropdown-item" href="/"><i
+                                class="bi bi-box-arrow-in-left m-r-5 m-l-5"></i> Đăng xuất</a>
                     </div>
                 </div>
 
             </div>
             <div class="row m-0 bg-light">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item text-dark"><a class="home" href="#">Trang chủ</a></li>
-                    <li class="breadcrumb-item text-dark">Đăng nhập</li>
+                    <li class="breadcrumb-item text-dark"><a class="home" href="trangchu.html">Trang chủ</a></li>
+                    
+                    <li class="breadcrumb-item text-dark" ><a class="home" href="/customers/view-cart/">Giỏ hàng</a></li>
+                    <li class="breadcrumb-item text-dark"><a class="home" href="/customers/get-receiver/">Thông tin nhận hàng</a></li>
+                    <li class="breadcrumb-item text-dark">Chọn phương thức thanh toán</li>
                 </ul>
             </div>
         </div>
     </header>
     
-    <section class=" d-flex justify-content-center mb-4" style="margin-top:5%">
-        <form class="form-login" method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            <p class="h4 mb-4 text-center">ĐĂNG NHẬP</p>
-
-            <div class="form-outline mb-4">
-                <label class="form-label h5" for="form1Example1" style="margin-left: 0px;">Tên đăng nhập</label>
-                <input type="text" id="form1Example1" name="username" class="form-control" {{form.username}}
-
-                <div class="form-notch">
-                    <div class="form-notch-leading" style="width: 9px;"></div>
-                    <div class="form-notch-middle" style="width: 88.8px;"></div>
-                    <div class="form-notch-trailing"></div>
-                </div>
-                
-            </div>
-
-            <div class="form-outline mb-4">
-                <label class="form-label h5" for="form1Example2" style="margin-left: 0px;">Mật khẩu</label>
-                <input type="password" id="form1Example2" name="password" class="form-control" {{form.password}}
-
-                <div class="form-notch">
-                    <div class="form-notch-leading" style="width: 9px;"></div>
-                    <div class="form-notch-middle" style="width: 64px;"></div>
-                    <div class="form-notch-trailing"></div>
-                </div>
-                
-            </div>
-            {% if messages %}
-                <p class="text-danger">{{ messages }}</p>
-            {% endif %}
+    <section  style="padding: 0 10%; margin-top:3%">
         
-            <div  class="h5 mb-4 text-center">
-                <p>Quên mật khẩu</p>
-                <button type="submit" class="btn btn-dark ">Đăng nhập</button>
-            </div>
-            <div  class="h5 mb-4 text-center">
-                <a href="{%url 'register' %}" type="button" class="btn btn-outline-dark ">Đăng ký</a>
-            </div>
-            
-        </form>
+        <div style="padding:0 5%; margin-top: 1%">
+            <form method="POST" action="{% url 'payment' %}" class="form-login" style="width: 100%; margin: 3% 0; background: #EDEDED; border: none">
+                {% csrf_token %}
+                <p class="h4 mb-4 text-center">Thông tin thanh toán</p>
+               
+                <div class="form-outline mb-4" style="width: 48%;">
+                    <label class="form-label h5" for="form1Example2" style="margin-left: 0px;">Phương thức thanh toán</span></label>
+                    <select name="method" required="" id="id_method"
+                    class=" form-control form-control-alternative" >
+                    </option>
+                    {% for k, v in methods %}
+                        {% comment %} {%if k == %} {% endcomment %}
+                        <option value="{{ k }}" >{{v}}</option>
+
+                    {% endfor %}
+
+                    </select>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;"></div>
+                        <div class="form-notch-middle" style="width: 64px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                </div>
+                    
+                <div  class="h5 mb-4 text-center" style="padding: 0 25%">
+                    <button type="submit" class="btn btn-dark ">Xác nhận</button>
+                </div>
+                
+            </form>
+
+        <div>
+        
     </section>
     <hr>
     
@@ -142,7 +140,7 @@
             <div class="py-2">
                 <input type="checkbox" class="py-4"> <span>Tôi đồng ý với các chính sách và điều khoản</span><Br>
                 <div style="padding: 1% 33% ">
-                    <a href="{%url 'register' %}" type="button" class="btn btn-dark ">ĐĂNG KÝ</a>
+                    <button type="button" class="btn btn-dark k">ĐĂNG KÝ</button>
                 </div>
             </div>
             
